@@ -1,0 +1,44 @@
+html {
+	box-sizing: border-box;
+}
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+* {max-height: 1000000px;}
+
+body {
+  color: $base-text-color;
+  font: #{$base-font-size}/#{$base-line-height} $base-font-sans-serif;
+  min-width: $base-min-width;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background: #c00202;
+  background: -webkit-radial-gradient(11% 89%, ellipse cover, #c00202 0%,#e41420 50%,#e41420 100%);
+  background: radial-gradient(ellipse at 11% 89%, #c00202 0%,#e41420 50%,#e41420 100%);
+  position: relative;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:none;
+}
+
+// adaptive images
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align:top;
+}
+
+// google map fix
+.gm-style img {max-width: none}
+a, button, input[type="submit"]{
+	cursor:pointer;
+	transition: color $animation-speed $animation-effect, background-color $animation-speed $animation-effect, opacity $animation-speed $animation-effect, border-color $animation-speed $animation-effect, visibility $animation-speed $animation-effect, transform $animation-speed $animation-effect;
+	-webkit-transition: color $animation-speed $animation-effect, background-color $animation-speed $animation-effect, opacity $animation-speed $animation-effect, border-color $animation-speed $animation-effect, visibility $animation-speed $animation-effect, -webkit-transform $animation-speed $animation-effect;
+}
+// hide tel links on desktop
+@media only screen and (min-width:1025px) {
+    a[href^=tel],a[href^=skype], a[href^=sms] {
+    cursor:default;
+    pointer-events:none;
+  }
+}
