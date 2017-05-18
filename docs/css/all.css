@@ -400,9 +400,7 @@ body {
   min-width: 1000px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #c00202;
-  background: radial-gradient(ellipse at 11% 89%, #c00202 0%, #e41420 50%, #e41420 100%);
-  position: relative;
+  background: #fff;
   -webkit-text-size-adjust: 100%;
   -ms-text-size-adjust: none; }
 
@@ -583,6 +581,11 @@ label {
 .slide-wrap {
   position: relative;
   overflow: hidden;
+  min-height: 100vh;
+  background: #c00202;
+  background: radial-gradient(ellipse at 11% 89%, #c00202 0%, #e41420 50%, #e41420 100%); }
+
+.wrapper {
   min-height: calc(100vh - 60px);
   padding: 0 0 60px 100px; }
 
@@ -593,7 +596,10 @@ label {
   position: relative;
   overflow: hidden;
   padding: 0 60px;
-  background: #fff url(../images/bg-main.jpg) no-repeat 100% 0; }
+  background: #fff url(../images/bg-main.jpg) no-repeat 100% 0;
+  transition: margin 0.3s ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
   .content:before {
     position: absolute;
     content: "";
@@ -618,7 +624,10 @@ label {
   max-width: 800px;
   min-height: calc(100vh - 60px);
   margin: 0 auto;
-  padding: 87px 0 53px; }
+  padding: 87px 0 53px;
+  transition: margin 0.3s ease;
+  -webkit-transform: translate3d(0, 0, 0);
+  transform: translate3d(0, 0, 0); }
   .content-holder .text-block {
     padding: 0 13px 35px; }
 
@@ -760,9 +769,10 @@ label {
   position: absolute;
   z-index: 3;
   left: 0;
-  right: 0;
   top: 0;
-  bottom: 0;
+  width: 100%;
+  min-width: 1000px;
+  height: 100%;
   overflow: auto;
   padding: 87px 117px 60px 158px;
   color: #fff;
@@ -770,16 +780,16 @@ label {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
-  transition: all 0.3s ease;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
   font-size: 14px;
   font-weight: 300; }
-  .design-popup .center-holder {
-    max-width: 740px;
-    margin: 0 auto; }
   .design-popup.modal-active {
     opacity: 1;
     visibility: visible;
     pointer-events: auto; }
+  .design-popup .center-holder {
+    max-width: 740px;
+    margin: 0 auto; }
   .design-popup h1 {
     text-transform: uppercase;
     font-weight: normal;

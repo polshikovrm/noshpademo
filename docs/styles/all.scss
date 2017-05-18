@@ -35,6 +35,12 @@ $media-expressions: (
 .slide-wrap{
 	position:relative;
 	overflow:hidden;
+	min-height:100vh;
+	background: #c00202;
+	background: -webkit-radial-gradient(11% 89%, ellipse cover, #c00202 0%,#e41420 50%,#e41420 100%);
+	background: radial-gradient(ellipse at 11% 89%, #c00202 0%,#e41420 50%,#e41420 100%);
+}
+.wrapper{
 	min-height:calc(100vh - 60px);
 	padding: 0 0 60px 100px;
 }
@@ -46,6 +52,8 @@ $media-expressions: (
 	overflow:hidden;
 	padding:0 60px;
 	background:#fff url(../images/bg-main.jpg) no-repeat 100% 0;
+	transition:margin 0.3s ease;
+	transform:translate3d(0,0,0);
 	&:before{
 		position:absolute;
 		content:"";
@@ -74,6 +82,8 @@ $media-expressions: (
 	min-height:calc(100vh - 60px);
 	margin:0 auto;
 	padding: 87px 0 53px;
+	transition:margin 0.3s ease;
+	transform:translate3d(0,0,0);
 	.text-block{
 		padding: 0 13px 35px;
 	}
@@ -221,9 +231,10 @@ $media-expressions: (
 	position:absolute;
 	z-index:3;
 	left:0;
-	right:0;
 	top:0;
-	bottom:0;
+	width:100%;
+	min-width:1000px;
+	height:100%;
 	overflow:auto;
 	padding:87px 117px 60px 158px;
 	color:#fff;
@@ -231,17 +242,17 @@ $media-expressions: (
 	opacity:0;
 	visibility:hidden;
 	pointer-events:none;
-	transition:all 0.3s ease;
+	transition:opacity 0.3s ease, visibility 0.3s ease;
 	font-size:14px;
 	font-weight: 300;
-	.center-holder{
-		max-width: 740px;
-		margin: 0 auto;
-	}
 	&.modal-active{
 		opacity:1;
 		visibility:visible;
 		pointer-events:auto;
+	}
+	.center-holder{
+		max-width: 740px;
+		margin: 0 auto;
 	}
 	h1{
 		text-transform: uppercase;
@@ -345,6 +356,3 @@ $media-expressions: (
 		margin: 0;
 	}
 }
-
-
-

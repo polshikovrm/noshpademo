@@ -4,15 +4,16 @@ jQuery(function() {
 });
 
 function initPopups() {
+	var win = jQuery(window);
 	var activeClass = 'popup-active';
 	var openedClass = 'opened';
 	var content = jQuery('.content');
 	var contentBlock = jQuery('.content-holder');
-	var animSpeed = 300;
 
 	jQuery('.popup-opener').each(function() {
 		var opener = jQuery(this);
 		var target = jQuery(opener.attr('href'));
+		var timer = null;
 
 		opener.on('click', function(e) {
 			e.preventDefault();
@@ -20,26 +21,38 @@ function initPopups() {
 				target.removeClass(activeClass);
 				opener.removeClass(openedClass);
 
-				contentBlock.stop().animate({
+				contentBlock.css({
 					'marginBottom': 0
-				}, animSpeed);
-				content.stop().animate({
+				});
+				content.css({
 					'marginBottom': 0
-				}, animSpeed);
+				});
 			} else {
 				target.addClass(activeClass);
 				opener.addClass(openedClass);
-
-				contentBlock.stop().animate({
-					'marginBottom': -1 * calcHeight(target)
-				}, animSpeed);
-				content.stop().animate({
-					'marginBottom': calcHeight(target)
-				}, animSpeed);
+				refreshIndents();
 			}
 		});
+
+		function refreshIndents() {
+			contentBlock.css({
+				'marginBottom': -1 * calcHeight(target)
+			});
+			content.css({
+				'marginBottom': calcHeight(target)
+			});
+		}
+
+		win.on('resize orientationchange', function() {
+			if (target.hasClass(activeClass)) {
+				clearTimeout(timer);
+				timer = setTimeout(function() {
+					refreshIndents();
+				}, 100);
+			}
+		})
 	});
-	
+
 	function calcHeight(block) {
 		var blockHeight = block.innerHeight();
 		return blockHeight;

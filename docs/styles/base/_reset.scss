@@ -13,10 +13,7 @@ body {
   min-width: $base-min-width;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background: #c00202;
-  background: -webkit-radial-gradient(11% 89%, ellipse cover, #c00202 0%,#e41420 50%,#e41420 100%);
-  background: radial-gradient(ellipse at 11% 89%, #c00202 0%,#e41420 50%,#e41420 100%);
-  position: relative;
+  background:#fff;
   -webkit-text-size-adjust:100%;
   -ms-text-size-adjust:none;
 }
