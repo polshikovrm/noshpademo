@@ -234,6 +234,10 @@ $media-expressions: (
 	transition:all 0.3s ease;
 	font-size:14px;
 	font-weight: 300;
+	.center-holder{
+		max-width: 740px;
+		margin: 0 auto;
+	}
 	&.modal-active{
 		opacity:1;
 		visibility:visible;

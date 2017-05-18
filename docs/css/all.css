@@ -397,7 +397,7 @@ html {
 body {
   color: #5b5859;
   font: 20px/1.1 "Helvetica", "Arial", sans-serif;
-  min-width: 320px;
+  min-width: 1000px;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background: #c00202;
@@ -773,6 +773,9 @@ label {
   transition: all 0.3s ease;
   font-size: 14px;
   font-weight: 300; }
+  .design-popup .center-holder {
+    max-width: 740px;
+    margin: 0 auto; }
   .design-popup.modal-active {
     opacity: 1;
     visibility: visible;
